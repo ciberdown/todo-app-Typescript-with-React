@@ -19,9 +19,12 @@ function App() {
     });
     setReminderList(newReminderList);
   };
+  const addReminder = async (id: number, title: string) => {
+    await reminderListService.addReminder(id, title);//returns error 404
+  }
   return (
     <div className="App">
-      <ReminderList remove={removeReminder} items={reminderList} />
+      <ReminderList add={addReminder} remove={removeReminder} items={reminderList} />
     </div>
   );
 }

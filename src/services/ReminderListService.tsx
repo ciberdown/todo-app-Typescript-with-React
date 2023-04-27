@@ -10,8 +10,9 @@ class ReminderListServices {
     const response = await this.http.delete('/todos/'+id);
   }
 
-  async addReminder(title: string, userId: number){
-    //add reminder here
+  async addReminder(id: number, title: string){
+    const response = await this.http.post('/todos/'+ id, title);
+    console.log(response.data);
   }
 }
 const reminderListService = new ReminderListServices();
